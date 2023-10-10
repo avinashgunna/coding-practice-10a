@@ -1,0 +1,35 @@
+POST http://localhost:3000/login/
+Content-Type: authentization/header
+
+{
+  "username": "christopher_phillips",
+  "password": "christy@123"
+}
+
+###
+GET http://localhost:3000/states/
+Authentization: bearer jwtToken
+
+###
+GET http://localhost:3000/states/stateId/
+Authentization: bearer jwtToken
+
+###
+POST http://localhost:3000/districts/
+Authentization: bearer jwtToken
+
+###
+GET http://localhost:3000/districts/districtId/
+Authentization: bearer jwtToken
+
+###
+PUT http://localhost:3000/districts/districtId/
+Authentization: bearer jwtToken
+
+###
+DELETE http://localhost:3000/districts/districtId/
+Autherization: bearer jwtToken
+
+###
+GET http:localhost:3000/states/stateId/stats/
+Authorization: bearer jwtToken
