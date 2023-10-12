@@ -1,5 +1,5 @@
 POST http://localhost:3000/login/
-Content-Type: authentization/header
+Content-Type: authorization/header
 
 {
   "username": "christopher_phillips",
@@ -8,28 +8,28 @@ Content-Type: authentization/header
 
 ###
 GET http://localhost:3000/states/
-Authentization: bearer jwtToken
+Authorization: bearer jwtToken
 
 ###
-GET http://localhost:3000/states/stateId/
-Authentization: bearer jwtToken
+GET http://localhost:3000/states/3/
+Authorization: bearer jwtToken
 
 ###
 POST http://localhost:3000/districts/
-Authentization: bearer jwtToken
+Authorization: bearer jwtToken
 
 ###
-GET http://localhost:3000/districts/districtId/
-Authentization: bearer jwtToken
+GET http://localhost:3000/districts/3/
+Authorization: bearer jwtToken
 
 ###
-PUT http://localhost:3000/districts/districtId/
-Authentization: bearer jwtToken
+PUT http://localhost:3000/districts/5/
+Authorization: bearer jwtToken
 
 ###
-DELETE http://localhost:3000/districts/districtId/
-Autherization: bearer jwtToken
+DELETE http://localhost:3000/districts/6/
+Authorization: bearer jwtToken
 
 ###
-GET http:localhost:3000/states/stateId/stats/
+GET http://localhost:3000/states/stateId/stats/
 Authorization: bearer jwtToken

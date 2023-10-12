@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 let db = null;
-const dbPath = path.join(__dirname, "covid19Portal.db");
+const dbPath = path.join(__dirname, "covid19IndiaPortal.db");
 
 const initializeDbAndServer = async () => {
   try {
@@ -21,6 +21,7 @@ const initializeDbAndServer = async () => {
     });
   } catch (error) {
     console.log(`Db Error: ${error.message}`);
+    process.exit(1);
   }
 };
 initializeDbAndServer();
@@ -76,7 +77,7 @@ app.post("/login/", async (request, response) => {
   } else {
     const isPasswordMatched = await bcrypt.compare(password, dbUser.password);
     if (isPasswordMatched === true) {
-      const { username: username } = payload;
+      const payload = { username };
       const jwtToken = await jwt.sign(payload, "MY_SECRET_KEY");
       response.send({ jwtToken });
     } else {
@@ -196,3 +197,5 @@ app.get(
     response.send(dbResponse);
   }
 );
+
+module.exports = app;
